@@ -1,0 +1,21 @@
+import java.util.ArrayList;
+
+public class Main {
+  public static void main(String[] args) {
+    ArrayList<String> cars = new ArrayList<String>();
+    cars.add("Volvo");
+    cars.add("BMW");
+    cars.add("Ford");
+    cars.add("Mazda");
+    cars.add("Toyota");
+    
+    ArrayList<String> valid = new ArrayList<String>();
+    valid.add("Volvo");
+    valid.add("Ford");
+    valid.add("Mazda");
+    
+    cars.retainAll(valid);
+    
+    System.out.println(cars);
+  }
+}
