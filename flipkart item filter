@@ -1,0 +1,30 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class ECommerceSearch {
+    public static void main(String[] args) {
+        Map<String, Double> productDatabase = new HashMap<>();
+        productDatabase.put("Laptop", 54999.50);
+        productDatabase.put("Smartphone", 24999.00);
+        productDatabase.put("Headphones", 1499.99);
+        productDatabase.put("Smartwatch", 3499.50);
+        productDatabase.put("Keyboard", 899.00);
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the item you are looking for (e.g., Laptop): ");
+        String userInput = scanner.nextLine().trim();
+        if (productDatabase.containsKey(userInput)) {
+            Double price = productDatabase.get(userInput);
+            System.out.println("\n--- Item Found ---");
+            System.out.println("Product: " + userInput);
+            System.out.println("Price: ₹" + price);
+        } else {
+            System.out.println("\nSorry, '" + userInput + "' is currently out of stock or not listed in our database.");
+            System.out.println("Here are all the available items: ");
+            for (String itemName : productDatabase.keySet()) {
+                System.out.println("- " + itemName);
+            }
+        }
+        scanner.close();
+    }
+}
