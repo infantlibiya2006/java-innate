@@ -1,0 +1,70 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class CRUDApp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<String> list = new ArrayList<>();
+        while (true) {
+            System.out.println("\n===== CRUD MENU =====");
+            System.out.println("1. Create (Add Data)");
+            System.out.println("2. Read (View Data)");
+            System.out.println("3. Update Data");
+            System.out.println("4. Delete Data");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine();
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter item to add: ");
+                    String item = sc.nextLine();
+                    list.add(item);
+                    System.out.println("Added successfully!");
+                    break;
+                case 2:
+                    System.out.println("Current List:");
+                    if (list.isEmpty()) {
+                        System.out.println("List is empty");
+                    } else {
+                        for (int i = 0; i < list.size(); i++) {
+                            System.out.println(i + " -> " + list.get(i));
+                        }
+                    }
+                    break;
+
+                // UPDATE
+                case 3:
+                    System.out.print("Enter index to update: ");
+                    int updateIndex = sc.nextInt();
+                    sc.nextLine();
+
+                    if (updateIndex >= 0 && updateIndex < list.size()) {
+                        System.out.print("Enter new value: ");
+                        String newValue = sc.nextLine();
+                        list.set(updateIndex, newValue);
+                        System.out.println("Updated successfully!");
+                    } else {
+                        System.out.println("Invalid index!");
+                    }
+                    break;
+                case 4:
+                    System.out.print("Enter index to delete: ");
+                    int deleteIndex = sc.nextInt();
+
+                    if (deleteIndex >= 0 && deleteIndex < list.size()) {
+                        list.remove(deleteIndex);
+                        System.out.println("Deleted successfully!");
+                    } else {
+                        System.out.println("Invalid index!");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Exiting program...");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
+    }
+}
