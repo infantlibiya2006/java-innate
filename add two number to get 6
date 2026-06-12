@@ -1,0 +1,25 @@
+import java.util.HashSet;
+public class PairSumNoNegative {
+    public static void main(String[] args) {
+        int[] arr = {1, 5, 7, -1, 5, 3};
+        int target = 6;
+        HashSet<Integer> seen = new HashSet<>();
+        HashSet<String> printed = new HashSet<>();
+        System.out.println("Pairs with sum " + target + " (ignoring negatives):");
+        for (int num : arr) {
+            if (num < 0) continue; // ignore negative numbers
+            int complement = target - num;
+            if (complement < 0) continue; // ignore negative pairs
+            if (seen.contains(complement)) {
+                int a = Math.min(num, complement);
+                int b = Math.max(num, complement);
+                String pair = a + "," + b;
+                if (!printed.contains(pair)) {
+                    System.out.println("(" + a + ", " + b + ")");
+                    printed.add(pair);
+                }
+            }
+            seen.add(num);
+        }
+    }
+}
