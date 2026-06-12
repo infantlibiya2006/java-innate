@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class LargestDigit {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        String str = Integer.toString(num);
+        int[] arr = new int[str.length()];
+        for (int i = 0; i < str.length(); i++) {
+            arr[i] = str.charAt(i) - '0';
+        }
+        int largest = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+        System.out.print("Array elements: ");
+        for (int digit : arr) {
+            System.out.print(digit + " ");
+        }
+        System.out.println("\nLargest digit: " + largest);
+        sc.close();
+    }
+}
