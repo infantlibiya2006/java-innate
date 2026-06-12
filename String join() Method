@@ -1,0 +1,6 @@
+public class Main {
+  public static void main(String[] args) {
+    String fruits = String.join(" ", "Orange", "Apple", "Mango");
+    System.out.println(fruits);
+  }
+}
