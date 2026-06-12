@@ -1,0 +1,11 @@
+import java.util.ArrayList;
+public class AddAtIndexExample {
+    public static void main(String[] args) {
+       ArrayList<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Mango");
+        list.add(1, "Banana");
+        System.out.println("List using add(index, object):");
+        System.out.println(list);
+    }
+}
