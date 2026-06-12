@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+public class RemoveEvenNumbers {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+        System.out.print("Enter size of list: ");
+        int n = sc.nextInt();
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            list.add(sc.nextInt());
+        }
+        list.removeIf(num -> num % 2 == 0);
+        System.out.println("Odd numbers in the list:");
+        for (int num : list) {
+            System.out.print(num + " ");
+        }
+        sc.close();
+    }
+}
